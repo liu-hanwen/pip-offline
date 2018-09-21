@@ -59,13 +59,13 @@ if __name__=='__main__':
 
     format_type = args['f'][0] if 'f' in args else 'zip'
     format_cmd_map = {
-        'tar': 'tar -cf %s %s',
-        'tar.gz': 'tar -czf %s %s',
-        'tar.bz2': 'tar -cjf %s %s',
+        'tar': 'tar -cvf %s %s',
+        'tar.gz': 'tar -czvf %s %s',
+        'tar.bz2': 'tar -cjvf %s %s',
         'zip': 'zip -r %s %s'
     }
     if format_type not in format_cmd_map:
-        raise ValueError('Only [zip(default), tar, tar.gz, tar.bz2, zip] are available.')
+        raise ValueError('Only [tar(default), tar.gz, tar.bz2, zip] are available.')
     format_cmd = format_cmd_map[format_type]
 
     output_name = args['n'][0] if 'n' in args else 'offline_installer'
